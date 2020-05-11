@@ -2,6 +2,9 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ include "dotnetcore3dockermvchelm.fullname" . }}
+  namespace: {{ .Values.namespace }}
+  annotations:
+    service.beta.kubernetes.io/azure-load-balancer-internal: "true"
   labels:
 {{ include "dotnetcore3dockermvchelm.labels" . | indent 4 }}
 spec:

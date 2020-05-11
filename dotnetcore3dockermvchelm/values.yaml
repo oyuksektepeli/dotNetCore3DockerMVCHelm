@@ -4,17 +4,19 @@
 
 replicaCount: 1
 
+namespace: nc-dev
+
 image:
-  repository: nginx
-  tag: stable
-  pullPolicy: IfNotPresent
+  repository: yuksektek.azurecr.io/netcore3webapprazor
+  tag: latest
+  pullPolicy: Always
 
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
 service:
-  type: ClusterIP
+  type: LoadBalancer
   port: 80
 
 ingress:
