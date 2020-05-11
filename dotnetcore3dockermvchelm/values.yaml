@@ -7,7 +7,7 @@ replicaCount: 1
 namespace: nc-dev
 
 image:
-  repository: yuksektek.azurecr.io/netcore3webapprazor
+  repository: yuksektek.azurecr.io/dotnetcore3dockermvchelm
   tag: latest
   pullPolicy: Always
 
