@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ include "dotnetcore3dockermvchelm.fullname" . }}-test-connection"
+  labels:
+{{ include "dotnetcore3dockermvchelm.labels" . | indent 4 }}
+  annotations:
+    "helm.sh/hook": test-success
+spec:
+  containers:
+    - name: wget
+      image: busybox
+      command: ['wget']
+      args:  ['{{ include "dotnetcore3dockermvchelm.fullname" . }}:{{ .Values.service.port }}']
+  restartPolicy: Never
